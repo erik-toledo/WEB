@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <br>
+    <div class="Container">
+        <div class="mx-auto border border-primary" style="width: 200px;">
+            <img src="https://www.cloudflare.com/resources/images/slt3lc6tev37/6BSeabli1dxdV3k2Ojz0rS/d9a6084ee17b8eb90559b7ca9f689708/icon-cdn-orange.png" alt="..." class="img-thumbnail rounded float-left">
+                <br>
+                <form method="POST">
+                    {%csrf_token%}
+                    <div class="form-group" >
+                        <input type="text" class="form-control border border-primary "placeholder= "Correo" name="user" required>
+                    </div>
+                    <div class="form-group" >
+                        <input type="password" class="form-control border border-primary " placeholder="Contraseña" name="password" required    > 
+                        <br>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-primary">Acceder</button>
+                    </div>
+                    <br>
+                    {% if error %}
+                        <div class="alert alert-warning" role="alert">
+                            {% if error %}
+                                {{error}}
+                            {%endif%}
+                        </div>
+                    {% endif%}
+                    <a href="{% url 'Landing:landing' %}">Ir a Carrusel</a>
+                </form>
+           </div>
+    </div>
+   
+        
+
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
