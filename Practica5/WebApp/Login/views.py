@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
-
-
 from django.contrib.auth import authenticate
+from django.contrib.auth import login as login_django
 
 class LoginClass(View):
     template = 'Login/login.html'
@@ -10,7 +9,13 @@ class LoginClass(View):
     template_ok = 'Dashboard/dashboard.html'
 
     def get(self, request, *args, **kwargs ):
-        return render( request,self.template,{})
+        if request.user.is_authenticated:
+            next_url = request.GET.get('next')
+            if next_url:
+                return redirect(next_url)
+            else:
+                return redirect('Dashboard:dashboard')
+        return render(request, self.template,{})
 
     def post(self, request ,*args, **kwargs):
 
@@ -18,27 +23,23 @@ class LoginClass(View):
         password_post = request.POST['password']
 
         user_session = authenticate(username = user_post, password = password_post)
+        if user_session is not None:
+            login_django(request, user_session)
+            next_url = request.GET.get('next')
+            if next_url:
+                return redirect(next_url)
+            else:
+                return redirect('Dashboard:dashboard')
 
-        if user_session is  None:
-          self.messsage = "Usuario y Contraseña no validos" 
         else:
-            return redirect('xx:dashboard')
-
-        return render(request,self.template,self.get_Context())
+            self.message = 'Usuario o contraseña incorrecto'
+        return render(request, self.template, self.get_Context())
+    
     def get_Context(self):
         return{
-            'error': self.messsage
+            'error': self.message
         }
 
-# class LandingClass(View):
-#     templates = 'Landing/landing.html'
-#     def get(self,request,*args, **kwargs):
-#        return render(request,self.templates,{})
-
-# class DashboardClass(View):
-#     templates = 'Dashboard/dashboard.html'
-#     def get(self,request,*args, **kwargs):
-#        return render(request,self.templates,{})
 
 
 
