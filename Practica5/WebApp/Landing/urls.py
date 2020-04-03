@@ -7,5 +7,4 @@ app_name = 'Landing'
 
 urlpatterns = [
     path('',LandingClass.as_view(),name = 'landing'),
-    path('Login/',LoginClass.as_view(),name = 'login')
 ]

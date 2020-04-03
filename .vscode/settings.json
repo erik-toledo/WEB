@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "Practica5\\Scripts\\python.exe",
+    "python.formatting.provider": "yapf"
+}

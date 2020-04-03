@@ -5,22 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Document</title>
+    <title>Login</title>
 </head>
-<body>
+<body background="https://techtalk.vn/wp-content/uploads/2018/11/Newbie_Watermarked.a9319218252a.jpg" style="background-repeat: no-repeat; background-size: cover;">
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+
     <div class="Container">
-        <div class="mx-auto border border-primary" style="width: 200px;">
-            <img src="https://www.cloudflare.com/resources/images/slt3lc6tev37/6BSeabli1dxdV3k2Ojz0rS/d9a6084ee17b8eb90559b7ca9f689708/icon-cdn-orange.png" alt="..." class="img-thumbnail rounded float-left">
+        <div class="mx-auto " style="width: 350px;background-color: #7CD281;">
+            <br>
+            <div class="mx-auto" style="width: 140px;">
+                <img src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_960_720.png" width="140" height="140"alt="..." class="rounded-circle">
+            </div>
                 <br>
-                <form method="POST">
+                <form method="POST" style="width: 200px;" class="mx-auto">
                     {%csrf_token%}
                     <div class="form-group" >
-                        <input type="text" class="form-control border border-primary "placeholder= "Correo" name="user" required>
+                        <input type="text" class="form-control  "placeholder= "Usuario" name="user" required>
                     </div>
                     <div class="form-group" >
-                        <input type="password" class="form-control border border-primary " placeholder="Contraseña" name="password" required    > 
+                        <input type="password" class="form-control " placeholder="Contraseña" name="password" required    > 
                         <br>
                     </div>
                     <div style="text-align: center;">
@@ -34,8 +41,17 @@
                             {%endif%}
                         </div>
                     {% endif%}
-                    <a href="{% url 'Landing:landing' %}">Ir a Carrusel</a>
                 </form>
+                <div  class="font-weight-bold mx-auto" style="width: 200px;">
+                        <ul class="nav">
+                            <li class="nav-item mx" >
+                                <a class="nav-link active" href="{% url 'Registro:registro' %}">Registrate</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'Landing:landing' %}">Inicio</a>
+                            </li>
+                        </ul>
+                    </div>
            </div>
     </div>
    

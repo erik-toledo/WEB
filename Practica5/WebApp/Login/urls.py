@@ -5,5 +5,5 @@ from Login.views import LoginClass
 app_name = 'Login'
 
 urlpatterns = [
-    path('Login/',LoginClass.as_view(),name = 'login'),  
+    path('',LoginClass.as_view(),name = 'login'),  
 ]

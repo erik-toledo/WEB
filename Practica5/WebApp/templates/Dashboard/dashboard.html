@@ -7,10 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>DASHBOARD</title>
 </head>
-<body>
-    <div style="text-align: center;">
-         <img src="https://cdn.mcu.es/wp-content/uploads/lucesdebohemia_cartelweb.jpg"   style="width: 200px;">
-    </div>
+<body background="https://www.houseofbots.com/images/news/4355/cover.png" style="background-repeat: no-repeat; background-size: cover;">
+    <br>
+    <br>
+    <br>
+
+    <div class="card mx-auto" style="width: 18rem; background-color: #ABE5B2; color: white;">
+        <br>
+        <img src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_960_720.png" width="200" height="200" class="img-thumbnail rounded-circle mx-auto"alt="..." >
+        <div class="card-body">
+          <h5 class="card-title ">PERFIL</h5>
+        </div>
+        <ul class="list-group list-group-flush font-weight-bold" style="color: white;">
+          <li class="list-group-item" style="background-color: #7CD281;">Usuario: {{request.user.username}}</li>
+          <li class="list-group-item" style="background-color: #7CD281;">Nombre: {{request.user.first_name}}</li>
+          <li class="list-group-item" style="background-color: #7CD281;">Apellido: {{request.user.last_name}}</li>
+          <li class="list-group-item" style="background-color: #7CD281;">Correo: {{request.user.email}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="{% url 'logout'%}" class="card-link">Cerrar sesion</a>
+        </div>
+      </div>
    
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
